@@ -14,7 +14,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-3">
                 <form action="files/createevent.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="Description">Description</label>
@@ -41,7 +41,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-9">
                 <?php
                 require_once('files/dbconnection.php');
                 require('files/createevent.php');
@@ -72,18 +72,55 @@
                                 <td><?php echo $event['date'];?></td>
                                 <td><?php echo $event['vip_cost'];?></td>
                                 <td><?php echo $event['regular_cost'];?></td>
+                                <td>
+                                <a href="index.php" class="btn btn-sm btn-success" data-toggle="modal" data-target="#<?php echo $event['id'];?>">Update</a>
+                                <a href="?id=<?php echo $event['id'];?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this record ??')">Delete</a>
+                                </td>
+                                            <!-- update modal -->
+                                <div class="modal fade" id="<?php echo $event['id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Update Event</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                    <form action="files/create.php" method="POST">
+                                                        <div class="form-group">
+                                                            <label for="eventid">Id</label>
+                                                            <input type="text" class="form-control" id="eventid" name="id" readonly value="<?php echo $event['id'];?>">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="description">Description</label>
+                                                            <input type="text" class="form-control" id="description" name="description" value="<?php echo $event['description'];?>">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="vipcost">VIP</label>
+                                                            <input type="number" class="form-control" id="vipcost" name="vipcost" value="<?php echo $event['vip_cost'];?>">
+                                                        </div>
+                                                        <div class="form-group">
+                                                        <label for="regular">Regular</label>
+                                                        <input type="number" class="form-control" id="regular"  name="regular" value="<?php echo $event['regular_cost'];?>">
+                                                        </div>
+                                                        <button type="update" class="btn btn-default" name="updateEvent">Update</button>
+                                                    </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </tr>
-                         }
-                        
+                        <?php }?>
                     </tbody>
                 </table>
-                }
+                <?php }?>
                 
             </div>
         </div>
-        
-    </div>
+    </div>  
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 </body>
 </html>
