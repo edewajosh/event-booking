@@ -13,31 +13,75 @@
 </head>
 <body>
     <div class="container">
-    <form action="files/createevent.php" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="Description">Description</label>
-            <input type="text" name="description" id="Description" class="form-control">
+        <div class="row">
+            <div class="col-sm-6">
+                <form action="files/createevent.php" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="Description">Description</label>
+                        <input type="text" name="description" id="Description" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="Date">Event Date</label>
+                        <input type="date" name="date" id="Date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="VipCost">VIP Cost</label>
+                        <input type="number" name="vip_cost" id="VipCost" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="RegularCost">Regular Cost</label>
+                        <input type="number" name="regular_cost" id="RegularCost" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="Poster">Poster</label>
+                        <input type="file" name="poster" id="Poster" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" value="submit" class="btn btn-info" name="addevent">Add Event</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <?php
+                require_once('files/dbconnection.php');
+                require('files/createevent.php');
+                $events = array();
+                $events = getEvents($dbc);
+                $countEvents = count($events);
+                if ($countEvents > 0)
+                {
+                    ?>
+                <h3>Scheduled Events</h3>
+                <table class="table table-sm table-hover">
+                    <thead class="thead-dark">
+                        <th>#</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                        <th>VIP</th>
+                        <th>Regular</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        <?php
+                         foreach($events as $event)
+                         {
+                            ?>
+                            <tr>
+                                <td><?php echo $event['id'];?></td>
+                                <td><?php echo $event['description'];?></td>
+                                <td><?php echo $event['date'];?></td>
+                                <td><?php echo $event['vip_cost'];?></td>
+                                <td><?php echo $event['regular_cost'];?></td>
+                            </tr>
+                         }
+                        
+                    </tbody>
+                </table>
+                }
+                
+            </div>
         </div>
-        <div class="form-group">
-            <label for="Date">Event Date</label>
-            <input type="date" name="date" id="Date" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="VipCost">VIP Cost</label>
-            <input type="number" name="vip_cost" id="VipCost" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="RegularCost">Regular Cost</label>
-            <input type="number" name="regular_cost" id="RegularCost" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="Poster">Poster</label>
-            <input type="file" name="poster" id="Poster" class="form-control">
-        </div>
-        <div class="form-group">
-            <button type="submit" value="submit" class="btn btn-info" name="addevent">Add Event</button>
-        </div>
-    </form>
+        
     </div>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
