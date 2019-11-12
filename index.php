@@ -102,12 +102,12 @@
                                                         <input type="number" class="form-control" id="vipcost" name="vipcost" value="<?php echo $event['vip_cost'];?>">
                                                     </div>
                                                     <div class="form-group">
-                                                    <label for="regular">Regular</label>
-                                                    <input type="number" class="form-control" id="regular"  name="regular" value="<?php echo $event['regular_cost'];?>">
+                                                        <label for="regular">Regular</label>
+                                                        <input type="number" class="form-control" id="regular"  name="regular" value="<?php echo $event['regular_cost'];?>">
                                                     </div>
                                                     <div class="form-group">
-                                                    <label for="poster">Poster</label>
-                                                    <input type="file" class="form-control" id="poster"  name="poster" value="<?php echo $event['poster'];?>">
+                                                        <label for="poster">Poster</label>
+                                                        <input type="file" class="form-control" id="poster"  name="poster" value="<?php echo $event['poster'];?>">
                                                     </div>
                                                     <button type="update" class="btn btn-default" name="updateEvent">Update</button>
                                                 </form>
