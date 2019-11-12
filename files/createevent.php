@@ -40,8 +40,6 @@ function addEvent($description, $date, $vipcost, $regularcost, $poster, $dbc){
 function updateEvent($id, $description, $date, $vipcost, $regularcost, $poster, $dbc){
     // The path to store the upload image
     $target = "../images/".basename($_FILES["poster"]['name']);
-
-    $update = "UPDATE ticketing_event SET description = '$description', date = '$date', vip_cost = '$vipcost', regular = '$regularcost', poster = '$poster' WHERE id='$id' ";
     
     if (move_uploaded_file($_FILES['poster']['tmp_name'], $target)) {
         $msg = "Image uploaded succesfully"."<br>";
@@ -49,8 +47,10 @@ function updateEvent($id, $description, $date, $vipcost, $regularcost, $poster, 
         $msg = "There was a problem uploading image";
     }
     
+    $update = "UPDATE ticketing_event SET description='$description', date='$date', vip_cost='$vipcost', regular_cost='$regularcost', poster='$poster' WHERE id='$id' ";
+    
     if($dbc->query($update) === true){
-        echo("<p>Successfully Update the event</p>");
+        header('location: ../');
     }else{
         echo "Error : " .$update . "<br>" . $dbc->error;
     }
@@ -79,9 +79,10 @@ if(isset($_POST['addevent'])){
 if(isset($_POST['updateEvent'])){
     $description = $_POST['description'];
     $date = $_POST['date'];
-    $vipcost = $_POST['vip_cost'];
-    $regularcost = $_POST['regular_cost'];
+    $vipcost = $_POST['vipcost'];
+    $regularcost = $_POST['regular'];
     $poster = $_FILES['poster']['name'];
+    $id = $_POST['id'];
     updateEvent($id, $description, $date, $vipcost, $regularcost, $poster,$dbc); 
 }
 

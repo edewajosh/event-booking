@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
@@ -84,26 +84,33 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                    <form action="files/createevent.php" method="POST" enctype="multipart/form-data">
-                                                        <div class="form-group">
-                                                            <label for="eventid">Id</label>
-                                                            <input type="text" class="form-control" id="eventid" name="id" readonly value="<?php echo $event['id'];?>">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="description">Description</label>
-                                                            <input type="text" class="form-control" id="description" name="description" value="<?php echo $event['description'];?>">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="vipcost">VIP</label>
-                                                            <input type="number" class="form-control" id="vipcost" name="vipcost" value="<?php echo $event['vip_cost'];?>">
-                                                        </div>
-                                                        <div class="form-group">
-                                                        <label for="regular">Regular</label>
-                                                        <input type="number" class="form-control" id="regular"  name="regular" value="<?php echo $event['regular_cost'];?>">
-                                                        </div>
-                                                        <button type="update" class="btn btn-default" name="updateEvent">Update</button>
-                                                    </form>
-
+                                                <form action="files/createevent.php" method="POST" enctype="multipart/form-data">
+                                                    <div class="form-group">
+                                                        <label for="eventid">Id</label>
+                                                        <input type="text" class="form-control" id="eventid" name="id" readonly value="<?php echo $event['id'];?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="description">Description</label>
+                                                        <input type="text" class="form-control" id="description" name="description" value="<?php echo $event['description'];?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="date">Date</label>
+                                                        <input type="date" class="form-control" id="date" name="date" value="<?php echo $event['date'];?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="vipcost">VIP</label>
+                                                        <input type="number" class="form-control" id="vipcost" name="vipcost" value="<?php echo $event['vip_cost'];?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <label for="regular">Regular</label>
+                                                    <input type="number" class="form-control" id="regular"  name="regular" value="<?php echo $event['regular_cost'];?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <label for="poster">Poster</label>
+                                                    <input type="file" class="form-control" id="poster"  name="poster" value="<?php echo $event['poster'];?>">
+                                                    </div>
+                                                    <button type="update" class="btn btn-default" name="updateEvent">Update</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -118,8 +125,8 @@
         </div>
     </div>  
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
