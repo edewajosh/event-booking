@@ -37,8 +37,6 @@
     <div class="row">
         <?php
         foreach($events as $event){
-            $poster = $event['poster'];
-            if(empty($poster)) $poster="../images/Churchill.jpeg";
             ?>
             <div class="col-md-4">
                 <a href="reserveticket.php"  data-toggle="modal" data-target="#<?php echo $event['id'];?>">

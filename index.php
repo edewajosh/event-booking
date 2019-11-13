@@ -30,10 +30,6 @@
                         <input type="number" name="regular_cost" id="RegularCost" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="Poster">Poster</label>
-                        <input type="file" name="poster" id="Poster" class="form-control">
-                    </div>
-                    <div class="form-group">
                         <button type="submit" value="submit" class="btn btn-info" name="addevent">Add Event</button>
                     </div>
                 </form>
@@ -104,10 +100,6 @@
                                                     <div class="form-group">
                                                         <label for="regular">Regular</label>
                                                         <input type="number" class="form-control" id="regular"  name="regular" value="<?php echo $event['regular_cost'];?>">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="poster">Poster</label>
-                                                        <input type="file" class="form-control" id="poster"  name="poster" value="<?php echo $event['poster'];?>">
                                                     </div>
                                                     <button type="update" class="btn btn-default" name="updateEvent">Update</button>
                                                 </form>

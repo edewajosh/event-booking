@@ -17,17 +17,10 @@ function getEvents($dbc){
     return $events;
 }
 
-function addEvent($description, $date, $vipcost, $regularcost, $poster, $dbc){
-    // The path to store the upload image
-    $target = "../images/".basename($_FILES["poster"]['name']);
+
+function addEvent($description, $date, $vipcost, $regularcost, $dbc){
    
-    $add = "INSERT INTO ticketing_event (description, date, vip_cost, regular_cost, poster) VALUES ('$description', '$date', '$vipcost', '$regularcost', '$poster')";
-    
-    if (move_uploaded_file($_FILES['poster']['tmp_name'], $target)) {
-        $msg = "Image uploaded succesfully"."<br>";
-    }else{
-        $msg = "There was a problem uploading image";
-    }
+    $add = "INSERT INTO ticketing_event (description, date, vip_cost, regular_cost) VALUES ('$description', '$date', '$vipcost', '$regularcost')";
     
     if($dbc->query($add) === TRUE ){
         echo 'Event has been successfully created'."<br>";
@@ -37,17 +30,8 @@ function addEvent($description, $date, $vipcost, $regularcost, $poster, $dbc){
     }
 }
 
-function updateEvent($id, $description, $date, $vipcost, $regularcost, $poster, $dbc){
-    // The path to store the upload image
-    $target = "../images/".basename($_FILES["poster"]['name']);
-    
-    if (move_uploaded_file($_FILES['poster']['tmp_name'], $target)) {
-        $msg = "Image uploaded succesfully"."<br>";
-    }else{
-        $msg = "There was a problem uploading image";
-    }
-    
-    $update = "UPDATE ticketing_event SET description='$description', date='$date', vip_cost='$vipcost', regular_cost='$regularcost', poster='$poster' WHERE id='$id' ";
+function updateEvent($id, $description, $date, $vipcost, $regularcost, $dbc){
+    $update = "UPDATE ticketing_event SET description='$description', date='$date', vip_cost='$vipcost', regular_cost='$regularcost' WHERE id='$id' ";
     
     if($dbc->query($update) === true){
         header('location: ../');
@@ -72,8 +56,7 @@ if(isset($_POST['addevent'])){
     $date = $_POST['date'];
     $vipcost = $_POST['vip_cost'];
     $regularcost = $_POST['regular_cost'];
-    $poster = $_FILES['poster']['name'];
-    addEvent($description, $date, $vipcost, $regularcost, $poster,$dbc);
+    addEvent($description, $date, $vipcost, $regularcost,$dbc);
 }
 
 if(isset($_POST['updateEvent'])){
@@ -81,9 +64,8 @@ if(isset($_POST['updateEvent'])){
     $date = $_POST['date'];
     $vipcost = $_POST['vipcost'];
     $regularcost = $_POST['regular'];
-    $poster = $_FILES['poster']['name'];
     $id = $_POST['id'];
-    updateEvent($id, $description, $date, $vipcost, $regularcost, $poster,$dbc); 
+    updateEvent($id, $description, $date, $vipcost, $regularcost,$dbc); 
 }
 
 if(isset($_GET['id'])){
