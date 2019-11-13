@@ -20,14 +20,15 @@
         }
         
         $result = getNextEvent($dbc);
+        $date = date_create($result['2']);
 
      ?>
     
     <!-- Button trigger modal -->
-    <div class="container m-5">
+    <div class="container m-5 content-font">
         <div class="col-md-12 text-center">
             <p class="lead text-white"><?php echo $result['1'];?></p>
-            <p class="lead text-white"><?php echo $result['2'];?></p>
+            <p class="lead text-white"><?php echo date_format($date,"d M Y");?></p>
             <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal">
             Get Tickets Here!
             </button>
