@@ -43,7 +43,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4 col-md-offset-4">
-            <form id="login" action="../files/authentication.php"" class="well">
+            <form id="login" action="../files/authentication.php"" class="well" method="post">
                    <div class="form-group">
                     <label>Username</label>
                     <input type="text" name="username" class="form-control" required placeholder="Username">
@@ -54,9 +54,13 @@
                   </div>
                   <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" required placeholder="Password">
+                    <input type="password" name="password" class="form-control" required placeholder="Password">
                   </div>
-                  <button type="submit" class="btn btn-default btn-block">Register</button>
+                  <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" name="password_1" class="form-control" required placeholder="Password">
+                  </div>
+                  <button type="submit" class="btn btn-default btn-block" name="register">Register</button>
               </form>
           </div>
         </div>

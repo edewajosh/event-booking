@@ -10,6 +10,15 @@
     <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
+    <?php
+  session_start();
+  if(! $_SESSION['email'] &&  !$_SESSION['username']){
+    header('location: login.php');
+
+  }else{
+
+  
+  ?>
 
     <nav class="navbar navbar-default navbar-expand-md">
       <div class="container">
@@ -27,8 +36,12 @@
             <li class=" navbar-item"><a class="nav-link" href="index.php">Events</a></li>
           </ul>
           <ul class="navbar-nav ml-auto">
-            <li class="navbar-item"><a href="#" class="nav-link">Welcome, Admin</a></li>
-            <li class="navbar-item"><a href="login.php" class="nav-link">Logout</a></li>
+            <li class="navbar-item"><a href="#" class="nav-link">Welcome, <?php echo $_SESSION['username']; ?></a></li>
+            <li class="navbar-item">
+                <form action="../admin/login.php" method="POST"> 
+                <button href="../files/authentication.php" class="btn btn-group-sm btn-outline-danger" name="logout" style="color: white;">Logout</button>
+              </form>
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -178,3 +191,4 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   </body>
 </html>
+<?php }?>
