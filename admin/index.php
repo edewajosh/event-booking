@@ -11,24 +11,24 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-expand-md">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Admin</a>
+          <a class="navbar-brand nav-link" href="#">Admin</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Events</a></li>
+        <div id="navbar" class="collapse navbar-collapse" id="navbar">
+          <ul class="navbar-nav">
+            <li class=" navbar-item"><a class="nav-link" href="index.php">Events</a></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Welcome, Admin</a></li>
-            <li><a href="login.php">Logout</a></li>
+          <ul class="navbar-nav ml-auto">
+            <li class="navbar-item"><a href="#" class="nav-link">Welcome, Admin</a></li>
+            <li class="navbar-item"><a href="login.php" class="nav-link">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -38,7 +38,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Events<small>Manage Site Events</small></h1>
+            <h1><span class="glyphicon glyphicon-cog " aria-hidden="true"></span>Events<small>Manage Site Events</small></h1>
           </div>
           <div class="col-md-2">
 
@@ -50,8 +50,8 @@
     <section id="breadcrumb">
       <div class="container">
         <ol class="breadcrumb">
-          <li><a href="#">Dashboard</a></li>
-          <li class="active">Events</li>
+          <li><a class="nav-link " href="#">Dashboard</a></li>
+          <li class="active nav-link ">Events</li>
         </ol>
       </div>
     </section>
@@ -171,7 +171,7 @@
     </footer>
 
     
-    !-- Latest compiled and minified JavaScript -->
+    <!-- Latest compiled and minified JavaScript -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

@@ -21,7 +21,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">AdminStrap</a>
+          <a class="navbar-brand" href="#">Admin</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
 
@@ -43,16 +43,17 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4 col-md-offset-4">
-            <form id="login" action="index.html" class="well">
+            <form id="login" action="../files/authentication.php" class="well">
                   <div class="form-group">
                     <label>Email Address</label>
-                    <input type="text" class="form-control" placeholder="Enter Email">
+                    <input type="email" name="email" class="form-control" required placeholder="Enter Email">
                   </div>
                   <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" required placeholder="Password">
                   </div>
                   <button type="submit" class="btn btn-default btn-block">Login</button>
+                  <p class="h4"><a href="registration.php">Need to Create An Account</a></p>
               </form>
           </div>
         </div>
@@ -60,12 +61,9 @@
     </section>
 
     <footer id="footer">
-      <p>Copyright AdminStrap, &copy; 2017</p>
+      <p>Copyright Admin, &copy; 2019</p>
     </footer>
 
-  <script>
-     CKEDITOR.replace( 'editor1' );
- </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
