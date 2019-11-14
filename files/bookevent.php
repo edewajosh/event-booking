@@ -6,7 +6,7 @@ function bookEvent($event, $email, $phone, $tickettype, $tickets, $dbc){
     $query = "INSERT INTO bookings(email, phone, event_name, ticket_type, tickets) VALUES('$email','$phone','$event', '$tickettype', '$tickets')";
     if($dbc->query($query) === TRUE ){
         echo 'Event has been successfully booked'."<br>";
-        header('location: ../home.php');
+        header('location: ../index.php');
     }else{
         echo "Error: ". $query . "<br>" . $dbc->error;
     }

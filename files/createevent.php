@@ -24,7 +24,7 @@ function addEvent($description, $date, $vipcost, $regularcost, $dbc){
     
     if($dbc->query($add) === TRUE ){
         echo 'Event has been successfully created'."<br>";
-        header('location: ../');
+        header('location: ../admin/index.php');
     }else{
         echo "Error: ". $add . "<br>" . $dbc->error;
     }
@@ -34,7 +34,7 @@ function updateEvent($id, $description, $date, $vipcost, $regularcost, $dbc){
     $update = "UPDATE ticketing_event SET description='$description', date='$date', vip_cost='$vipcost', regular_cost='$regularcost' WHERE id='$id' ";
     
     if($dbc->query($update) === true){
-        header('location: ../');
+        header('location: ../admin/index.php');
     }else{
         echo "Error : " .$update . "<br>" . $dbc->error;
     }
