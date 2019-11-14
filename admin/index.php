@@ -38,8 +38,8 @@
           <ul class="navbar-nav ml-auto">
             <li class="navbar-item"><a href="#" class="nav-link">Welcome, <?php echo $_SESSION['username']; ?></a></li>
             <li class="navbar-item">
-                <form action="../admin/login.php" method="POST"> 
-                <button href="../files/authentication.php" class="btn btn-group-sm btn-outline-danger" name="logout" style="color: white;">Logout</button>
+                <form action="../files/authentication.php" method="GET"> 
+                    <button value="submit" class="btn btn-group-sm btn-outline-danger" name="logout" style="color: white;">Logout</button>
               </form>
             </li>
           </ul>
@@ -73,7 +73,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <p class="align-center h3">Add The Next Event</p>
-                    <form action="files/createevent.php" method="POST" enctype="multipart/form-data">
+                    <form action="../files/createevent.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="Description">Description</label>
                             <input type="text" name="description" id="Description" class="form-control">
@@ -83,12 +83,16 @@
                             <input type="date" name="date" id="Date" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="VipCost">VIP Cost</label>
-                            <input type="number" name="vip_cost" id="VipCost" class="form-control">
+                            <label for="gold">Gold</label>
+                            <input type="number" name="gold" id="gold" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="RegularCost">Regular Cost</label>
-                            <input type="number" name="regular_cost" id="RegularCost" class="form-control">
+                            <label for="silver">Silver</label>
+                            <input type="number" name="silver" id="silver" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="bronze">Bronze</label>
+                            <input type="number" name="bronze" id="bronze" class="form-control">
                         </div>
                         <div class="form-group">
                             <button type="submit" value="submit" class="btn btn-info" name="addevent">Add Event</button>
@@ -111,8 +115,9 @@
                             <th>#</th>
                             <th>Description</th>
                             <th>Date</th>
-                            <th>VIP</th>
-                            <th>Regular</th>
+                            <th>Gold</th>
+                            <th>Silver</th>
+                            <th>Gold</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
@@ -124,8 +129,9 @@
                                     <td><?php echo $event['id'];?></td>
                                     <td><?php echo $event['description'];?></td>
                                     <td><?php echo $event['date'];?></td>
-                                    <td><?php echo $event['vip_cost'];?></td>
-                                    <td><?php echo $event['regular_cost'];?></td>
+                                    <td><?php echo $event['gold'];?></td>
+                                    <td><?php echo $event['silver'];?></td>
+                                    <td><?php echo $event['bronze'];?></td>
                                     <td>
                                         <a href="index.php" class="btn btn-sm btn-success" data-toggle="modal" data-target="#<?php echo $event['id'];?>">Update</a>
                                         <a href="?id=<?php echo $event['id'];?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this record ??')">Delete</a>
@@ -141,7 +147,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="files/createevent.php" method="POST">
+                                                    <form action="../files/createevent.php" method="POST">
                                                         <div class="form-group">
                                                             <label for="eventid">Id</label>
                                                             <input type="text" class="form-control" id="eventid" name="id" readonly value="<?php echo $event['id'];?>">
@@ -155,12 +161,16 @@
                                                             <input type="date" class="form-control" id="date" name="date" value="<?php echo $event['date'];?>">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="vipcost">VIP</label>
-                                                            <input type="number" class="form-control" id="vipcost" name="vipcost" value="<?php echo $event['vip_cost'];?>">
+                                                            <label for="gold">Gold</label>
+                                                            <input type="number" class="form-control" id="gold" name="gold" value="<?php echo $event['gold'];?>">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="regular">Regular</label>
-                                                            <input type="number" class="form-control" id="regular"  name="regular" value="<?php echo $event['regular_cost'];?>">
+                                                            <label for="silver">Silver</label>
+                                                            <input type="number" class="form-control" id="silver"  name="silver" value="<?php echo $event['silver'];?>">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="bronze">Bronze</label>
+                                                            <input type="number" class="form-control" id="bronze"  name="bronze" value="<?php echo $event['bronze'];?>">
                                                         </div>
                                                         <button type="update" class="btn btn-default" name="updateEvent">Update</button>
                                                     </form>

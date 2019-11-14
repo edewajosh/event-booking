@@ -13,7 +13,7 @@
         include_once('files/dbconnection.php');
 
         function getNextEvent($dbc){
-            $query = "SELECT id, description, date FROM ticketing_event ORDER BY id DESC LIMIT 1";
+            $query = "SELECT id, description, date FROM event ORDER BY id DESC LIMIT 1";
             $result = $dbc->query($query);
             $result = $result->fetch_row();
             return $result;

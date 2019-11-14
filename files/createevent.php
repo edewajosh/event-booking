@@ -3,7 +3,7 @@
 include_once('dbconnection.php');
 
 function getEvents($dbc){
-    $query="SELECT * FROM ticketing_event";
+    $query="SELECT * FROM event";
     $result = $dbc->query($query);
     $rows=$result->num_rows;
     if ($rows>0) {
@@ -18,9 +18,9 @@ function getEvents($dbc){
 }
 
 
-function addEvent($description, $date, $vipcost, $regularcost, $dbc){
+function addEvent($description, $date, $gold, $silver, $bronze, $dbc){
    
-    $add = "INSERT INTO ticketing_event (description, date, vip_cost, regular_cost) VALUES ('$description', '$date', '$vipcost', '$regularcost')";
+    $add = "INSERT INTO event (description, date, gold, silver, bronze) VALUES ('$description', '$date', '$gold', '$silver', '$bronze')";
     
     if($dbc->query($add) === TRUE ){
         echo 'Event has been successfully created'."<br>";
@@ -30,8 +30,8 @@ function addEvent($description, $date, $vipcost, $regularcost, $dbc){
     }
 }
 
-function updateEvent($id, $description, $date, $vipcost, $regularcost, $dbc){
-    $update = "UPDATE ticketing_event SET description='$description', date='$date', vip_cost='$vipcost', regular_cost='$regularcost' WHERE id='$id' ";
+function updateEvent($id, $description, $date, $gold, $silver, $bronze, $dbc){
+    $update = "UPDATE event SET description='$description', date='$date', gold='$gold', silver='$silver', bronze='$bronze' WHERE id='$id' ";
     
     if($dbc->query($update) === true){
         header('location: ../admin/index.php');
@@ -41,7 +41,7 @@ function updateEvent($id, $description, $date, $vipcost, $regularcost, $dbc){
 }
 
 function deleteEvent($id, $dbc){
-    $delete = "DELETE FROM ticketing_event WHERE id='$id'";
+    $delete = "DELETE FROM event WHERE id='$id'";
     if($dbc->query($delete) === true){
         echo("<p>Successfully deleted the event</p>");
     }else{
@@ -54,18 +54,20 @@ if(isset($_POST['addevent'])){
     // Get all the submitted data from the form
     $description = $_POST['description'];
     $date = $_POST['date'];
-    $vipcost = $_POST['vip_cost'];
-    $regularcost = $_POST['regular_cost'];
-    addEvent($description, $date, $vipcost, $regularcost,$dbc);
+    $gold = $_POST['gold'];
+    $silver = $_POST['silver'];
+    $bronze = $_POST['bronze'];
+    addEvent($description, $date, $gold, $silver, $bronze,$dbc);
 }
 
 if(isset($_POST['updateEvent'])){
     $description = $_POST['description'];
     $date = $_POST['date'];
-    $vipcost = $_POST['vipcost'];
-    $regularcost = $_POST['regular'];
+    $gold = $_POST['gold'];
+    $silver = $_POST['silver'];
+    $bronze = $_POST['bronze'];
     $id = $_POST['id'];
-    updateEvent($id, $description, $date, $vipcost, $regularcost,$dbc); 
+    updateEvent($id, $description, $date, $gold, $silver, $bronze,$dbc); 
 }
 
 if(isset($_GET['id'])){
